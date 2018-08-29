@@ -20,10 +20,14 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-
 import Foundation
 
-let DefaultStatusBarHeight : CGFloat = 20
+//let DefaultStatusBarHeight : CGFloat = 20
+var DefaultStatusBarHeight : CGFloat {
+    get {
+        return UIApplication.shared.statusBarFrame.height
+    }
+}
 
 extension UIView {
     class func panelAnimation(_ duration : TimeInterval, animations : @escaping (()->()), completion : (()->())? = nil) {

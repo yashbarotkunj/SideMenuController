@@ -20,7 +20,6 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-
 import UIKit
 
 public protocol SideMenuControllerDelegate: class {
@@ -29,13 +28,14 @@ public protocol SideMenuControllerDelegate: class {
 }
 
 // MARK: - Public methods -
-
 public extension SideMenuController {
     
     /**
      Toggles the side pannel visible or not.
      */
-    public func toggle() {
+    
+    //public func toggle() {
+    @objc public func toggle() {
         
         if !transitionInProgress {
             if !sidePanelVisible {
@@ -164,7 +164,7 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     var transitionInProgress = false
     var flickVelocity: CGFloat = 0
     
-
+    
     lazy var sidePanelPosition: SidePanelPosition = {
         return self._preferences.drawing.sidePanelPosition
     }()
@@ -212,8 +212,8 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Configurations -
-    
-    func repositionViews() {
+    //func repositionViews() {
+    @objc func repositionViews() {
         
         if sidePanelVisible {
             toggle()
@@ -356,7 +356,8 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
         statusBarUnderlay.alpha = alpha
     }
     
-    func handleTap() {
+    //func handleTap() {
+    @objc func handleTap() {
         animate(toReveal: false)
     }
     
